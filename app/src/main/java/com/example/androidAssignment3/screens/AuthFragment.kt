@@ -47,8 +47,8 @@ class AuthFragment : Fragment() {
             }
 
             bRegister.setOnClickListener {
-                val direction = AuthFragmentDirections.actionAuthFragment3ToProfileFragment()///ось тут 
-                MAIN.navControler.navigate(R.id.action_authFragment3_to_profileFragment)
+                val direction = AuthFragmentDirections.actionAuthFragmentToProfileFragment()///ось тут
+                MAIN.navControler.navigate(R.id.action_authFragment_to_profileFragment)
             }
         }
 

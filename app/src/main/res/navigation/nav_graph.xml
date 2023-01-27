@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authFragment3">
+    app:startDestination="@id/authFragment">
 
     <fragment
-        android:id="@+id/authFragment3"
+        android:id="@+id/authFragment"
         android:name="com.example.androidAssignment3.screens.AuthFragment"
         android:label="AuthFragment">
         <action
-            android:id="@+id/action_authFragment3_to_profileFragment"
+            android:id="@+id/action_authFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
     <fragment
@@ -18,7 +18,7 @@
         android:label="ProfileFragment">
         <action
             android:id="@+id/action_profileFragment_to_authFragment3"
-            app:destination="@id/authFragment3" />
+            app:destination="@id/authFragment" />
         <argument
             android:name="user_name"
             app:argType="string"
