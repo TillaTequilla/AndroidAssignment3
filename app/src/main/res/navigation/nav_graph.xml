@@ -9,15 +9,16 @@
         android:name="com.example.androidAssignment3.screens.AuthFragment"
         android:label="AuthFragment">
         <action
-            android:id="@+id/action_authFragment_to_profileFragment"
+            android:id="@+id/action_authFragment3_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.androidAssignment3.screens.ProfileFragment"
         android:label="ProfileFragment">
         <action
-            android:id="@+id/action_profileFragment_to_authFragment3"
+            android:id="@+id/action_profileFragment_to_authFragment"
             app:destination="@id/authFragment" />
         <argument
             android:name="user_name"
