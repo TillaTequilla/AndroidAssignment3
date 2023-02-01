@@ -2,6 +2,8 @@ package com.example.androidAssignment3
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.Resources
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,8 +15,12 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
+import com.example.androidAssignment3.constance.Constance.ADD_CONTACT_RESULT_KET
 import com.example.androidAssignment3.databinding.AddContactBinding
 import com.example.androidAssignment3.contacts.Contact
+import com.example.androidAssignment3.extension.setSizePercent
 
 
 class DialogFragmentAddContact : DialogFragment() {
@@ -34,6 +40,7 @@ class DialogFragmentAddContact : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setSizePercent(90, 90)
         binding.ivAddContactChoosePhoto.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             launcher.launch(intent)
@@ -63,18 +70,20 @@ class DialogFragmentAddContact : DialogFragment() {
     }
 
     private fun addContactToActivity(contact: Contact) {
-        activity?.let {
-            (it as ContactsActivity).apply {
-                addContact(contact)
-            }
-        }
+        val bundle = Bundle()
+        bundle.putSerializable("contact", contact)
+        setFragmentResult(ADD_CONTACT_RESULT_KET, bundle)
     }
 
     private fun createContact(): Contact {
         return Contact(
             imageUri.toString(),
             binding.tiedUsernameNew.text.toString(),
-            binding.tiedCareerNew.text.toString()
+            binding.tiedCareerNew.text.toString(),
+            binding.tiedEmailNew.text.toString(),
+            binding.tiedPhoneNew.text.toString(),
+            binding.tiedAddressNew.text.toString(),
+            binding.tiedDateOfBirthNew.text.toString()
         )
     }
 }

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/IvContactBorder"
+        android:id="@+id/ivContactBorder"
         android:layout_width="0dp"
         android:layout_height="@dimen/RecycleViewContact_border_height"
         android:layout_marginHorizontal="@dimen/RecycleViewContact_border_marginHorizontal"
@@ -17,16 +17,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/IvContactPhoto"
+        android:id="@+id/ivContactPhoto"
         android:layout_width="@dimen/RecycleViewContact_ivContactPhoto_size"
         android:layout_height="@dimen/RecycleViewContact_ivContactPhoto_size"
         android:layout_marginVertical="@dimen/RecycleViewContact_ivContactPhoto_marginVertical"
         android:layout_marginStart="@dimen/RecycleViewContact_ivContactPhoto_marginStart"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@id/IvContactBorder"
+        app:layout_constraintBottom_toBottomOf="@id/ivContactBorder"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="@id/IvContactBorder"
-        app:layout_constraintTop_toTopOf="@id/IvContactBorder" />
+        app:layout_constraintStart_toStartOf="@id/ivContactBorder"
+        app:layout_constraintTop_toTopOf="@id/ivContactBorder" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvContact_Name"
@@ -38,8 +38,8 @@
         android:textColor="@color/black"
         android:textSize="@dimen/RecycleViewContact_tvName_textSize"
         app:layout_constraintBottom_toTopOf="@id/tvContact_career"
-        app:layout_constraintStart_toEndOf="@id/IvContactPhoto"
-        app:layout_constraintTop_toTopOf="@id/IvContactBorder"
+        app:layout_constraintStart_toEndOf="@id/ivContactPhoto"
+        app:layout_constraintTop_toTopOf="@id/ivContactBorder"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/semi_bold"
         android:text="Career"
-        app:layout_constraintBottom_toBottomOf="@id/IvContactBorder"
+        app:layout_constraintBottom_toBottomOf="@id/ivContactBorder"
         app:layout_constraintStart_toStartOf="@id/tvContact_Name"
         app:layout_constraintTop_toBottomOf="@id/tvContact_Name" />
 
@@ -57,9 +57,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/RecycleViewContact_ivRemoveContact_marginEnd"
-        app:layout_constraintBottom_toBottomOf="@id/IvContactBorder"
-        app:layout_constraintEnd_toEndOf="@id/IvContactBorder"
-        app:layout_constraintTop_toTopOf="@id/IvContactBorder"
+        app:layout_constraintBottom_toBottomOf="@id/ivContactBorder"
+        app:layout_constraintEnd_toEndOf="@id/ivContactBorder"
+        app:layout_constraintTop_toTopOf="@id/ivContactBorder"
         app:srcCompat="@drawable/icon_trash" />
 
 

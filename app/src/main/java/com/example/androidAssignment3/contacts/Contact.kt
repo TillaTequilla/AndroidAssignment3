@@ -1,3 +1,12 @@
 package com.example.androidAssignment3.contacts
 
-data class Contact(val imageURL: String, val name: String, val career: String)
+import java.io.Serializable
+data class Contact(
+    val imageURL: String,
+    val name: String,
+    val career: String,
+    val eMail: String = "",
+    val phone: String = "",
+    val address: String = "",
+    val birth: String = ""
+) : Serializable

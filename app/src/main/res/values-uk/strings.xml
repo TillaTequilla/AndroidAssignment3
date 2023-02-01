@@ -22,7 +22,6 @@
     <string name="login_error_password_number">Хоча б 1 цифра</string>
     <string name="login_error_email_valid_email">Введіть коректну е-скриньку</string>
     <string name="addContact_hint_username"><font size="34">Логін</font></string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="addContact_hint_career">Професія</string>
     <string name="addContact_hint_email">Е-Скриня</string>
@@ -33,4 +32,11 @@
     <string name="contacts_toast_noInformation">Товариш без імені(</string>
     <string name="contacts_tvAddContact">Додади контакт</string>
     <string name="contacts_tvContacts">Контакти</string>
+    <string name="contacts_sbRemoved">%1$s видалений</string>
+    <string name="showContact_name">Ім\'я: %1$s</string>
+    <string name="showContact_career">Професія: %1$s</string>
+    <string name="showContact_email">еСкриня: %1$s</string>
+    <string name="showContact_phone">Телефон: %1$s</string>
+    <string name="showContact_address">Адреса: %1$s</string>
+    <string name="showContact_birth">Дата народження: %1$s</string>
 </resources>

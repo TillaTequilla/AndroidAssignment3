@@ -33,4 +33,13 @@
     <string name="contacts_toast_noInformation">At least give a name</string>
     <string name="contacts_tvAddContact">Add Contact</string>
     <string name="contacts_tvContacts">Contacts</string>
+    <string name="contacts_sbRemoved">%1$s removed</string>
+    <string name="recyclerView_itemName" translatable="false">Name</string>
+    <string name="recyclerView_itemCareer" translatable="false">Career</string>
+    <string name="showContact_name">Name: %1$s</string>
+    <string name="showContact_career">Career: %1$s</string>
+    <string name="showContact_email">Email: %1$s</string>
+    <string name="showContact_phone">Phone: %1$s</string>
+    <string name="showContact_address">Address: %1$s</string>
+    <string name="showContact_birth">Birth: %1$s</string>
 </resources>

@@ -1,31 +1,57 @@
 package com.example.androidAssignment3.screens
 
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import com.example.androidAssignment3.R
-import com.example.androidAssignment3.constance.MAIN
+import com.example.androidAssignment3.constance.Constance
 import com.example.androidAssignment3.databinding.FragmentAuthBinding
+import com.example.androidAssignment3.util.NameParser
 
 
 class AuthFragment : Fragment() {
 
     lateinit var binding: FragmentAuthBinding
 
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAuthBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        sharedPreferences = this.requireActivity()
+            .getSharedPreferences(Constance.SHAREDPREFERENCES_NAME, MODE_PRIVATE)
         super.onViewCreated(view, savedInstanceState)
+        getPreferencesData()
         listenerInitialization()
+    }
+
+    private fun getPreferencesData() {
+        if (sharedPreferences.getBoolean(Constance.SHAREDPREFERENCES_REMEMBER, false)) {
+            binding.tietEmail.setText(
+                sharedPreferences.getString(
+                    Constance.SHAREDPREFERENCES_EMAIL,
+                    null
+                )
+            )
+            binding.tietPassword.setText(
+                sharedPreferences.getString(
+                    Constance.SHAREDPREFERENCES_PASSWORD,
+                    null
+                )
+            )
+            binding.cbRememberMe.isChecked = true
+        }
     }
 
     private fun listenerInitialization() {
@@ -47,10 +73,26 @@ class AuthFragment : Fragment() {
             }
 
             bRegister.setOnClickListener {
-                val direction = AuthFragmentDirections.actionAuthFragmentToProfileFragment()///ось тут
-                MAIN.navControler.navigate(R.id.action_authFragment_to_profileFragment)
+                if (cbRememberMe.isChecked) {
+                    rememberInformation()
+                }else sharedPreferences.edit().clear().apply()
+                val direction = AuthFragmentDirections.actionAuthFragmentToProfileFragment(
+                    NameParser.getName(binding.tietEmail.text.toString())
+                )
+                findNavController().navigate(direction)
             }
+
         }
+    }
+
+    private fun rememberInformation() {
+        val checked = binding.cbRememberMe.isChecked
+        val editor = sharedPreferences.edit()
+        editor.putString(Constance.SHAREDPREFERENCES_EMAIL, binding.tietEmail.text.toString())
+        editor.putString(Constance.SHAREDPREFERENCES_PASSWORD, binding.tietPassword.text.toString())
+        editor.putBoolean(Constance.SHAREDPREFERENCES_REMEMBER, checked)
+        editor.apply()
+    }
 
 
 //    companion object {
@@ -72,5 +114,4 @@ class AuthFragment : Fragment() {
 //                }
 //            }
 //    }
-    }
 }
