@@ -73,15 +73,24 @@ class AuthFragment : Fragment() {
             }
 
             bRegister.setOnClickListener {
-                if (cbRememberMe.isChecked) {
-                    rememberInformation()
-                }else sharedPreferences.edit().clear().apply()
-                val direction = AuthFragmentDirections.actionAuthFragmentToProfileFragment(
-                    NameParser.getName(binding.tietEmail.text.toString())
-                )
-                findNavController().navigate(direction)
+                if (checkForInput()) {
+                    if (cbRememberMe.isChecked) {
+                        rememberInformation()
+                    } else sharedPreferences.edit().clear().apply()
+                    val direction = AuthFragmentDirections.actionAuthFragmentToProfileFragment(
+                        NameParser.getName(binding.tietEmail.text.toString())
+                    )
+                    findNavController().navigate(direction)
+                }
             }
 
+        }
+    }
+
+    private fun checkForInput(): Boolean {
+        with(binding) {
+            return tilEmail.error == null && tilPassword.error == null
+                    && tietEmail.text!!.isNotEmpty() && tietPassword.text!!.isNotEmpty()
         }
     }
 
