@@ -1,41 +1,29 @@
-package com.example.androidAssignment3
+package com.example.androidAssignment3.ui.fragments
 
 import android.app.Activity
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
-import androidx.fragment.app.setFragmentResultListener
-import com.example.androidAssignment3.constance.Constance.ADD_CONTACT_RESULT_KET
+import com.example.androidAssignment3.R
+import com.example.androidAssignment3.architecture.BaseDialogFragment
+import com.example.androidAssignment3.util.Constance.ADD_CONTACT_RESULT_KEY
 import com.example.androidAssignment3.databinding.AddContactBinding
-import com.example.androidAssignment3.contacts.Contact
 import com.example.androidAssignment3.extension.setSizePercent
+import com.example.androidAssignment3.ui.Contact
+import com.example.androidAssignment3.util.Constance
 
 
-class DialogFragmentAddContact : DialogFragment() {
+class DialogFragmentAddContact : BaseDialogFragment<AddContactBinding>(AddContactBinding::inflate) {
 
     private var imageUri: Uri? = null
-    private lateinit var binding: AddContactBinding
     private lateinit var launcher: ActivityResultLauncher<Intent>
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = AddContactBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,6 +41,7 @@ class DialogFragmentAddContact : DialogFragment() {
                     binding.ivAddContactPhoto.setImageURI(imageUri)
                 }
             }
+
         binding.bSaveContact.setOnClickListener {
             if (binding.tiedUsernameNew.text!!.isEmpty()) {
                 Toast.makeText(
@@ -71,19 +60,21 @@ class DialogFragmentAddContact : DialogFragment() {
 
     private fun addContactToActivity(contact: Contact) {
         val bundle = Bundle()
-        bundle.putSerializable("contact", contact)
-        setFragmentResult(ADD_CONTACT_RESULT_KET, bundle)
+        bundle.putSerializable(Constance.CONTACT_SERIALIZABLE, contact)
+        setFragmentResult(ADD_CONTACT_RESULT_KEY, bundle)
     }
 
     private fun createContact(): Contact {
-        return Contact(
-            imageUri.toString(),
-            binding.tiedUsernameNew.text.toString(),
-            binding.tiedCareerNew.text.toString(),
-            binding.tiedEmailNew.text.toString(),
-            binding.tiedPhoneNew.text.toString(),
-            binding.tiedAddressNew.text.toString(),
-            binding.tiedDateOfBirthNew.text.toString()
-        )
+        binding.run {
+            return Contact(
+                imageUri.toString(),
+                tiedUsernameNew.text.toString(),
+                tiedCareerNew.text.toString(),
+                tiedEmailNew.text.toString(),
+                tiedPhoneNew.text.toString(),
+                tiedAddressNew.text.toString(),
+                tiedDateOfBirthNew.text.toString()
+            )
+        }
     }
 }

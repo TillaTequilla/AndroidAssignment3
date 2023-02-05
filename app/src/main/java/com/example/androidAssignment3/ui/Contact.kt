@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.contacts
+package com.example.androidAssignment3.ui
 
 import java.io.Serializable
 data class Contact(

@@ -1,19 +1,15 @@
 package com.example.androidAssignment3.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.androidAssignment3.contacts.Contact
-import com.example.androidAssignment3.contacts.ContactsViewModel
+import com.example.androidAssignment3.ui.Contact
 import com.example.androidAssignment3.R
 import com.example.androidAssignment3.databinding.RecycleviewContactItemBinding
 import com.example.androidAssignment3.util.DiffUtil
-import com.google.android.material.snackbar.Snackbar
 
 
 interface ContactController {

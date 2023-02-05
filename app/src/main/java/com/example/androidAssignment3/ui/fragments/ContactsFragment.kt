@@ -1,47 +1,33 @@
-package com.example.androidAssignment3.screens
+package com.example.androidAssignment3.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidAssignment3.DialogFragmentAddContact
-import com.example.androidAssignment3.DialogFragmentShowContact
 import com.example.androidAssignment3.R
 import com.example.androidAssignment3.adapter.ContactController
 import com.example.androidAssignment3.adapter.ContactsRecycleViewAdapter
-import com.example.androidAssignment3.constance.Constance.ADD_CONTACT_RESULT_KET
-import com.example.androidAssignment3.contacts.Contact
-import com.example.androidAssignment3.contacts.ContactsViewModel
+import com.example.androidAssignment3.architecture.BaseFragment
+import com.example.androidAssignment3.util.Constance.ADD_CONTACT_RESULT_KEY
+import com.example.androidAssignment3.ui.Contact
+import com.example.androidAssignment3.ui.ContactsViewModel
 import com.example.androidAssignment3.databinding.FragmentContactsBinding
+import com.example.androidAssignment3.util.Constance
 import com.example.androidAssignment3.util.SwipeToDeleteCallback
 import com.google.android.material.snackbar.Snackbar
 
 
+class ContactsFragment : BaseFragment<FragmentContactsBinding>(FragmentContactsBinding::inflate),
+    ContactController {
 
-
-class ContactsFragment : Fragment(), ContactController {
-
-    lateinit var binding: FragmentContactsBinding
-
-    private val contactViewModel: ContactsViewModel by viewModels()
+    private val contactViewModel: ContactsViewModel by activityViewModels()
 
     private val adapter: ContactsRecycleViewAdapter by lazy {
         ContactsRecycleViewAdapter(contactController = this)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentContactsBinding.inflate(layoutInflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -77,9 +63,9 @@ class ContactsFragment : Fragment(), ContactController {
         }
     }
 
-    private fun setFragmentListener(){
-        setFragmentResultListener(ADD_CONTACT_RESULT_KET){ _, bundle ->
-            val result=bundle.getSerializable("contact")
+    private fun setFragmentListener() {
+        setFragmentResultListener(ADD_CONTACT_RESULT_KEY) { _, bundle ->
+            val result = bundle.getSerializable(Constance.CONTACT_SERIALIZABLE)
             addContact(result as Contact)
         }
     }
@@ -102,8 +88,8 @@ class ContactsFragment : Fragment(), ContactController {
     override fun showContact(contact: Contact) {
         val dialog = DialogFragmentShowContact()
         val args = Bundle()
-        args.putSerializable("contact",contact)
-        dialog.arguments=args
+        args.putSerializable(Constance.CONTACT_SERIALIZABLE, contact)
+        dialog.arguments = args
         dialog.show(parentFragmentManager, "showContact")
     }
 

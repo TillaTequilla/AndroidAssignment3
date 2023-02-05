@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/profile_background"
-    tools:context=".screens.AuthFragment">
+    tools:context=".ui.fragments.AuthFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginInformation"
@@ -62,7 +62,7 @@
             app:layout_constraintVertical_bias="@dimen/authActivity_email_bias">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietEmail"
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
@@ -87,7 +87,7 @@
             app:layout_constraintTop_toBottomOf="@id/tilEmail">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietPassword"
+                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
