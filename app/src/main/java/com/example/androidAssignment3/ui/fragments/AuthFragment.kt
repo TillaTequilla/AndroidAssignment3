@@ -69,7 +69,7 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
                 } else tilEmail.error = getString(R.string.login_error_email_valid_email)
             }
 
-            bRegister.setOnClickListener {
+            btnRegister.setOnClickListener {
                 if (checkForInput()) {
                     if (cbRememberMe.isChecked) {
                         rememberInformation()

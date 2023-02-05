@@ -16,7 +16,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
         super.onViewCreated(view, savedInstanceState)
         binding.run {
             tvName.text = args.userName
-            bContacts.setOnClickListener {
+            btnContacts.setOnClickListener {
                 findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToContactsFragment())
             }
         }

@@ -42,8 +42,8 @@ class DialogFragmentAddContact : BaseDialogFragment<AddContactBinding>(AddContac
                 }
             }
 
-        binding.bSaveContact.setOnClickListener {
-            if (binding.tiedUsernameNew.text!!.isEmpty()) {
+        binding.btnSaveContact.setOnClickListener {
+            if (binding.etUsernameNew.text!!.isEmpty()) {
                 Toast.makeText(
                     context,
                     getString(R.string.contacts_toast_noInformation),
@@ -68,12 +68,12 @@ class DialogFragmentAddContact : BaseDialogFragment<AddContactBinding>(AddContac
         binding.run {
             return Contact(
                 imageUri.toString(),
-                tiedUsernameNew.text.toString(),
-                tiedCareerNew.text.toString(),
-                tiedEmailNew.text.toString(),
-                tiedPhoneNew.text.toString(),
-                tiedAddressNew.text.toString(),
-                tiedDateOfBirthNew.text.toString()
+                etUsernameNew.text.toString(),
+                etCareerNew.text.toString(),
+                etEmailNew.text.toString(),
+                etPhoneNew.text.toString(),
+                etAddressNew.text.toString(),
+                etDateOfBirthNew.text.toString()
             )
         }
     }
