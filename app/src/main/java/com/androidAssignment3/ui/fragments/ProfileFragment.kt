@@ -5,7 +5,6 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androidAssignment3.architecture.BaseFragment
-
 import com.androidAssignment3.databinding.FragmentProfileBinding
 
 

@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.androidAssignment3.architecture.BaseFragment
 import com.androidAssignment3.util.Constance
 import com.androidAssignment3.util.PreferenceHelper
-
 import com.androidAssignment3.R
 import com.androidAssignment3.databinding.FragmentAuthBinding
 
@@ -31,16 +30,20 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
         with(binding) {
             viewModel.apply {
                 if (
-                    com.androidAssignment3.util.PreferenceHelper.getValueFromSharedPreferences(com.androidAssignment3.util.Constance.SHARED_PREFERENCES_REMEMBER, false)) {
+                    PreferenceHelper.getValueFromSharedPreferences(
+                        Constance.SHARED_PREFERENCES_REMEMBER,
+                        false
+                    )
+                ) {
                     etEmail.setText(
-                        com.androidAssignment3.util.PreferenceHelper.getValueFromSharedPreferences(
-                            com.androidAssignment3.util.Constance.SHARED_PREFERENCES_EMAIL,
+                        PreferenceHelper.getValueFromSharedPreferences(
+                            Constance.SHARED_PREFERENCES_EMAIL,
                             ""
                         )
                     )
                     etPassword.setText(
-                        com.androidAssignment3.util.PreferenceHelper.getValueFromSharedPreferences(
-                            com.androidAssignment3.util.Constance.SHARED_PREFERENCES_PASSWORD,
+                        PreferenceHelper.getValueFromSharedPreferences(
+                            Constance.SHARED_PREFERENCES_PASSWORD,
                             ""
                         )
                     )
@@ -70,9 +73,10 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
                 if (checkForInput()) {
                     if (cbRememberMe.isChecked) {
                         rememberInformation()
-                    } else com.androidAssignment3.util.PreferenceHelper.sharedPreferences.edit().clear().apply()
+                    } else PreferenceHelper.sharedPreferences.edit()
+                        .clear().apply()
                     val direction =
-                        com.androidAssignment3.ui.fragments.AuthFragmentDirections.actionAuthFragmentToProfileFragment(
+                        AuthFragmentDirections.actionAuthFragmentToProfileFragment(
                             com.androidAssignment3.util.NameParser.getName(etEmail.text.toString())
                         )
                     findNavController().navigate(direction)
@@ -99,7 +103,10 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
                 Constance.SHARED_PREFERENCES_PASSWORD,
                 binding.etPassword.text.toString()
             )
-            PreferenceHelper.putValueToSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, checked)
+            PreferenceHelper.putValueToSharedPreferences(
+                Constance.SHARED_PREFERENCES_REMEMBER,
+                checked
+            )
         }
     }
 }

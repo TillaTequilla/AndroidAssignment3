@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseDialogFragment <B : ViewBinding>(
+abstract class BaseDialogFragment<B : ViewBinding>(
     private val inflaterMethod: (LayoutInflater, ViewGroup?, Boolean) -> B
 ) :
     DialogFragment() {

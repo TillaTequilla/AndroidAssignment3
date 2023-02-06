@@ -22,7 +22,7 @@ class ContactsRecycleViewAdapter(private val contactController: ContactControlle
 
 
     inner class Holder(item: View) : RecyclerView.ViewHolder(item) {
-        val binding = RecycleviewContactItemBinding.bind(item)
+        private val binding = RecycleviewContactItemBinding.bind(item)
         fun bind(contact: Contact) = with(binding) {
             tvContactName.text = contact.name
             tvContactCareer.text = contact.career
