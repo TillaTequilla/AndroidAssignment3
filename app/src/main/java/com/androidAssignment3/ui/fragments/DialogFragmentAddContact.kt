@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.ui.fragments
+package com.androidAssignment3.ui.fragments
 
 import android.app.Activity
 import android.content.Intent
@@ -11,13 +11,13 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.setFragmentResult
-import com.example.androidAssignment3.R
-import com.example.androidAssignment3.architecture.BaseDialogFragment
-import com.example.androidAssignment3.util.Constance.ADD_CONTACT_RESULT_KEY
-import com.example.androidAssignment3.databinding.AddContactBinding
-import com.example.androidAssignment3.extension.setSizePercent
-import com.example.androidAssignment3.ui.Contact
-import com.example.androidAssignment3.util.Constance
+import com.androidAssignment3.R
+import com.androidAssignment3.architecture.BaseDialogFragment
+import com.androidAssignment3.util.Constance.ADD_CONTACT_RESULT_KEY
+import com.androidAssignment3.databinding.AddContactBinding
+import com.androidAssignment3.extension.setSizePercent
+import com.androidAssignment3.ui.Contact
+import com.androidAssignment3.util.Constance
 
 
 class DialogFragmentAddContact : BaseDialogFragment<AddContactBinding>(AddContactBinding::inflate) {

@@ -1,16 +1,16 @@
-package com.example.androidAssignment3.ui.fragments
+package com.androidAssignment3.ui.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
-import com.example.androidAssignment3.R
-import com.example.androidAssignment3.architecture.BaseDialogFragment
-import com.example.androidAssignment3.databinding.FragmentShowContactBinding
-import com.example.androidAssignment3.extension.setSizePercent
-import com.example.androidAssignment3.ui.Contact
-import com.example.androidAssignment3.ui.ContactsViewModel
-import com.example.androidAssignment3.util.Constance
+import com.androidAssignment3.R
+import com.androidAssignment3.architecture.BaseDialogFragment
+import com.androidAssignment3.databinding.FragmentShowContactBinding
+import com.androidAssignment3.extension.setSizePercent
+import com.androidAssignment3.ui.Contact
+import com.androidAssignment3.ui.ContactsViewModel
+import com.androidAssignment3.util.Constance
 
 class DialogFragmentShowContact :
     BaseDialogFragment<FragmentShowContactBinding>(FragmentShowContactBinding::inflate) {

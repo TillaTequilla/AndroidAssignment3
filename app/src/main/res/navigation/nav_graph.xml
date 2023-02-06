@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.example.androidAssignment3.ui.fragments.AuthFragment"
+        android:name="com.androidAssignment3.ui.fragments.AuthFragment"
         android:label="AuthFragment">
         <action
             android:id="@+id/action_authFragment_to_profileFragment"
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.androidAssignment3.ui.fragments.ProfileFragment"
+        android:name="com.androidAssignment3.ui.fragments.ProfileFragment"
         android:label="ProfileFragment">
         <argument
             android:name="user_name"
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactsFragment"
-        android:name="com.example.androidAssignment3.ui.fragments.ContactsFragment"
+        android:name="com.androidAssignment3.ui.fragments.ContactsFragment"
         android:label="ContactsFragment" >
         <action
             android:id="@+id/action_contactsFragment_to_profileFragment"

@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.adapter
+package com.androidAssignment3.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.androidAssignment3.ui.Contact
-import com.example.androidAssignment3.R
-import com.example.androidAssignment3.databinding.RecycleviewContactItemBinding
-import com.example.androidAssignment3.util.DiffUtil
+import com.androidAssignment3.ui.Contact
+import com.androidAssignment3.R
+import com.androidAssignment3.databinding.RecycleviewContactItemBinding
+import com.androidAssignment3.util.DiffUtil
 
 
 interface ContactController {

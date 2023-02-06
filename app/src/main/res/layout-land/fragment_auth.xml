@@ -114,7 +114,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5">
 
-        <com.example.androidAssignment3.views.GoogleButton
+        <com.androidAssignment3.views.GoogleButton
             android:id="@+id/btnGoogle"
             android:layout_width="0dp"
             android:layout_height="@dimen/authActivity_googleButton_height"

@@ -1,9 +1,9 @@
-package com.example.androidAssignment3.ui
+package com.androidAssignment3.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.androidAssignment3.util.UsersList
+import com.androidAssignment3.util.UsersList
 
 class ContactsViewModel : ViewModel() {
 

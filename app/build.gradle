@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.androidAssignment3'
+    namespace 'com.androidAssignment3'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.androidAssignment3"
+        applicationId "com.androidAssignment3"
         minSdk 26
         targetSdk 32
         versionCode 1

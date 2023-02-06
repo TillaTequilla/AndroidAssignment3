@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.ui.fragments
+package com.androidAssignment3.ui.fragments
 
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel

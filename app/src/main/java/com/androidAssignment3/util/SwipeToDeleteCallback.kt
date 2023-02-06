@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.util
+package com.androidAssignment3.util
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

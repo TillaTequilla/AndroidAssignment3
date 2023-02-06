@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.ui.fragments
+package com.androidAssignment3.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -8,16 +8,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidAssignment3.R
-import com.example.androidAssignment3.adapter.ContactController
-import com.example.androidAssignment3.adapter.ContactsRecycleViewAdapter
-import com.example.androidAssignment3.architecture.BaseFragment
-import com.example.androidAssignment3.util.Constance.ADD_CONTACT_RESULT_KEY
-import com.example.androidAssignment3.ui.Contact
-import com.example.androidAssignment3.ui.ContactsViewModel
-import com.example.androidAssignment3.databinding.FragmentContactsBinding
-import com.example.androidAssignment3.util.Constance
-import com.example.androidAssignment3.util.SwipeToDeleteCallback
+import com.androidAssignment3.R
+import com.androidAssignment3.adapter.ContactController
+import com.androidAssignment3.adapter.ContactsRecycleViewAdapter
+import com.androidAssignment3.architecture.BaseFragment
+import com.androidAssignment3.util.Constance.ADD_CONTACT_RESULT_KEY
+import com.androidAssignment3.ui.Contact
+import com.androidAssignment3.ui.ContactsViewModel
+
+import com.androidAssignment3.util.Constance
+import com.androidAssignment3.util.SwipeToDeleteCallback
+import com.androidAssignment3.databinding.FragmentContactsBinding
 import com.google.android.material.snackbar.Snackbar
 
 

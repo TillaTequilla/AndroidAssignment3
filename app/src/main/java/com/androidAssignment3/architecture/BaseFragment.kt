@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.architecture
+package com.androidAssignment3.architecture
 
 import android.os.Bundle
 import android.view.LayoutInflater

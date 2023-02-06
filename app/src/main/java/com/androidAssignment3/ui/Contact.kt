@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.ui
+package com.androidAssignment3.ui
 
 import java.io.Serializable
 

@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.views
+package com.androidAssignment3.views
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
-import com.example.androidAssignment3.R
+import com.androidAssignment3.R
 
 @SuppressLint("Recycle","UseCompatLoadingForDrawables")
 class GoogleButton @JvmOverloads constructor(
@@ -37,7 +37,7 @@ class GoogleButton @JvmOverloads constructor(
     private val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var icon_size = DEFAULT_ICON_SIZE
     private var textLenght: Float = 0F
-    private var edgeRounding=DEFAULT_ROUNDING
+    private var edgeRounding= DEFAULT_ROUNDING
 
     init {
         paint.isAntiAlias = true

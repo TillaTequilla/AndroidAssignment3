@@ -1,4 +1,4 @@
-package com.example.androidAssignment3.ui.fragments
+package com.androidAssignment3.ui.fragments
 
 
 import android.os.Bundle
@@ -6,12 +6,12 @@ import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.androidAssignment3.R
-import com.example.androidAssignment3.architecture.BaseFragment
-import com.example.androidAssignment3.util.Constance
-import com.example.androidAssignment3.databinding.FragmentAuthBinding
-import com.example.androidAssignment3.util.NameParser
-import com.example.androidAssignment3.util.PreferenceHelper
+import com.androidAssignment3.architecture.BaseFragment
+import com.androidAssignment3.util.Constance
+import com.androidAssignment3.util.PreferenceHelper
+
+import com.androidAssignment3.R
+import com.androidAssignment3.databinding.FragmentAuthBinding
 
 
 class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::inflate) {
@@ -31,16 +31,16 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
         with(binding) {
             viewModel.apply {
                 if (
-                    PreferenceHelper.getValueFromSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, false)) {
+                    com.androidAssignment3.util.PreferenceHelper.getValueFromSharedPreferences(com.androidAssignment3.util.Constance.SHARED_PREFERENCES_REMEMBER, false)) {
                     etEmail.setText(
-                        PreferenceHelper.getValueFromSharedPreferences(
-                            Constance.SHARED_PREFERENCES_EMAIL,
+                        com.androidAssignment3.util.PreferenceHelper.getValueFromSharedPreferences(
+                            com.androidAssignment3.util.Constance.SHARED_PREFERENCES_EMAIL,
                             ""
                         )
                     )
                     etPassword.setText(
-                        PreferenceHelper.getValueFromSharedPreferences(
-                            Constance.SHARED_PREFERENCES_PASSWORD,
+                        com.androidAssignment3.util.PreferenceHelper.getValueFromSharedPreferences(
+                            com.androidAssignment3.util.Constance.SHARED_PREFERENCES_PASSWORD,
                             ""
                         )
                     )
@@ -61,7 +61,7 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
             }
 
             etEmail.doAfterTextChanged { text ->
-                if (NameParser.validEmail(text.toString())) {
+                if (com.androidAssignment3.util.NameParser.validEmail(text.toString())) {
                     tilEmail.error = null
                 } else tilEmail.error = getString(R.string.login_error_email_valid_email)
             }
@@ -70,10 +70,11 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
                 if (checkForInput()) {
                     if (cbRememberMe.isChecked) {
                         rememberInformation()
-                    } else PreferenceHelper.sharedPreferences.edit().clear().apply()
-                    val direction = AuthFragmentDirections.actionAuthFragmentToProfileFragment(
-                        NameParser.getName(etEmail.text.toString())
-                    )
+                    } else com.androidAssignment3.util.PreferenceHelper.sharedPreferences.edit().clear().apply()
+                    val direction =
+                        com.androidAssignment3.ui.fragments.AuthFragmentDirections.actionAuthFragmentToProfileFragment(
+                            com.androidAssignment3.util.NameParser.getName(etEmail.text.toString())
+                        )
                     findNavController().navigate(direction)
                 }
             }

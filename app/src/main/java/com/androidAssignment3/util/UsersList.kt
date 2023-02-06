@@ -1,6 +1,6 @@
-package com.example.androidAssignment3.util
+package com.androidAssignment3.util
 
-import com.example.androidAssignment3.ui.Contact
+import com.androidAssignment3.ui.Contact
 
 object UsersList {
 
