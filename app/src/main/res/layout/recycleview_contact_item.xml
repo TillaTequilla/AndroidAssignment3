@@ -7,7 +7,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivContactBorder"
         android:layout_width="0dp"
-        android:layout_height="@dimen/RecycleViewContact_border_height"
+        android:layout_height="@dimen/recycleViewContact_border_height"
         android:layout_marginHorizontal="@dimen/indent_normal"
         android:layout_marginVertical="@dimen/indent_small"
         android:src="@drawable/user_border"
@@ -18,8 +18,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivContactPhoto"
-        android:layout_width="@dimen/RecycleViewContact_ivContactPhoto_size"
-        android:layout_height="@dimen/RecycleViewContact_ivContactPhoto_size"
+        android:layout_width="@dimen/recycleViewContact_ivContactPhoto_size"
+        android:layout_height="@dimen/recycleViewContact_ivContactPhoto_size"
         android:layout_marginVertical="@dimen/indent_min"
         android:layout_marginStart="@dimen/indent_small"
         android:scaleType="centerCrop"

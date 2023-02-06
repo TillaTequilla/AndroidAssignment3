@@ -44,7 +44,7 @@ class DialogFragmentShowContact :
                     getString(R.string.showContact_career, contact.career)
                 tvShowContactEmail.text = getString(R.string.showContact_email, contact.eMail)
                 tvShowContactPhone.text = getString(R.string.showContact_phone, contact.phone)
-                tvShowContactAdress.text =
+                tvShowContactAddress.text =
                     getString(R.string.showContact_address, contact.address)
                 tvShowContactBirth.text = getString(R.string.showContact_birth, contact.birth)
             }

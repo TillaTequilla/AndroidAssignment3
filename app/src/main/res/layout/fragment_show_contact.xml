@@ -8,49 +8,44 @@
         android:id="@+id/tvShowContact_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/semi_bold"
-        android:text="123123" />
+        android:fontFamily="@font/semi_bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvShowContact_career"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/semi_bold"
-        android:text="carer" />
+        android:fontFamily="@font/semi_bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvShowContact_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/semi_bold"
-        android:text="Email" />
+        android:fontFamily="@font/semi_bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvShowContact_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/semi_bold"
-        android:text="phone" />
+        android:fontFamily="@font/semi_bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvShowContact_adress"
+        android:id="@+id/tvShowContact_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/semi_bold"
-        android:text="phone" />
+        />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvShowContact_Birth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/semi_bold"
-        android:text="Birth" />
+        android:fontFamily="@font/semi_bold" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:constraint_referenced_ids="tvShowContact_name,tvShowContact_career,tvShowContact_email,tvShowContact_phone,tvShowContact_adress,tvShowContact_Birth"
+        app:constraint_referenced_ids="tvShowContact_name,tvShowContact_career,tvShowContact_email,tvShowContact_phone,tvShowContact_address,tvShowContact_Birth"
         app:flow_maxElementsWrap="1"
         app:flow_verticalBias="10"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,8 +82,8 @@
     <androidx.appcompat.widget.AppCompatImageView
 
         android:id="@+id/ivShowContact_photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/showContact_ivShowContactPhoto_size"
+        android:layout_height="@dimen/showContact_ivShowContactPhoto_size"
         app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

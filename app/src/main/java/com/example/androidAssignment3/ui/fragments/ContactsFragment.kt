@@ -27,7 +27,7 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>(FragmentContactsB
     private val contactViewModel: ContactsViewModel by activityViewModels()
 
     private val adapter: ContactsRecycleViewAdapter by lazy {
-        ContactsRecycleViewAdapter(contactController = this)
+        ContactsRecycleViewAdapter(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

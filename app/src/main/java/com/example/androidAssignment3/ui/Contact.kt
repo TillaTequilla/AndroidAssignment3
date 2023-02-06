@@ -1,6 +1,7 @@
 package com.example.androidAssignment3.ui
 
 import java.io.Serializable
+
 data class Contact(
     val imageURL: String,
     val name: String,

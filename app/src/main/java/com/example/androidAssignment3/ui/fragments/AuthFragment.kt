@@ -1,7 +1,6 @@
 package com.example.androidAssignment3.ui.fragments
 
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
+
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.doAfterTextChanged
@@ -12,19 +11,17 @@ import com.example.androidAssignment3.architecture.BaseFragment
 import com.example.androidAssignment3.util.Constance
 import com.example.androidAssignment3.databinding.FragmentAuthBinding
 import com.example.androidAssignment3.util.NameParser
+import com.example.androidAssignment3.util.PreferenceHelper
 
 
 class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::inflate) {
 
     private val viewModel: AuthFragmentViewModel by viewModels()
-    private lateinit var sharedPreferences: SharedPreferences
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.sharedPreferences = this.requireActivity()
-            .getSharedPreferences(Constance.SHARED_PREFERENCES_NAME, MODE_PRIVATE)
-        sharedPreferences=viewModel.sharedPreferences
+        viewModel.sharedPreferences = PreferenceHelper.init(this.requireActivity())
+
         super.onViewCreated(view, savedInstanceState)
         getPreferencesData()
         listenerInitialization()
@@ -34,15 +31,15 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
         with(binding) {
             viewModel.apply {
                 if (
-                    getValueFromSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, false)) {
+                    PreferenceHelper.getValueFromSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, false)) {
                     etEmail.setText(
-                        getValueFromSharedPreferences(
+                        PreferenceHelper.getValueFromSharedPreferences(
                             Constance.SHARED_PREFERENCES_EMAIL,
                             ""
                         )
                     )
                     etPassword.setText(
-                        getValueFromSharedPreferences(
+                        PreferenceHelper.getValueFromSharedPreferences(
                             Constance.SHARED_PREFERENCES_PASSWORD,
                             ""
                         )
@@ -73,7 +70,7 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
                 if (checkForInput()) {
                     if (cbRememberMe.isChecked) {
                         rememberInformation()
-                    } else sharedPreferences.edit().clear().apply()
+                    } else PreferenceHelper.sharedPreferences.edit().clear().apply()
                     val direction = AuthFragmentDirections.actionAuthFragmentToProfileFragment(
                         NameParser.getName(etEmail.text.toString())
                     )
@@ -93,15 +90,15 @@ class AuthFragment : BaseFragment<FragmentAuthBinding>(FragmentAuthBinding::infl
     private fun rememberInformation() {
         val checked = binding.cbRememberMe.isChecked
         viewModel.apply {
-            putValueToSharedPreferences(
+            PreferenceHelper.putValueToSharedPreferences(
                 Constance.SHARED_PREFERENCES_EMAIL,
                 binding.etEmail.text.toString()
             )
-            putValueToSharedPreferences(
+            PreferenceHelper.putValueToSharedPreferences(
                 Constance.SHARED_PREFERENCES_PASSWORD,
                 binding.etPassword.text.toString()
             )
-            putValueToSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, checked)
+            PreferenceHelper.putValueToSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, checked)
         }
     }
 }

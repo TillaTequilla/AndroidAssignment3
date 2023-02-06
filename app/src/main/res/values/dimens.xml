@@ -27,20 +27,19 @@
     <dimen name="mainActivity_socialMedias_size">60dp</dimen>
     <dimen name="mainActivity_socialMedias_bias">0.22</dimen>
     <dimen name="mainActivity_socialMedias_margin">32dp</dimen>
-    <dimen name="DialogFragment_svInformation_width">300dp</dimen>
-    <dimen name="DialogFragment_svInformation_height">400dp</dimen>
-    <dimen name="DialogFragment_tiIOfInformation_marginTop">20dp</dimen>
-    <dimen name="DialogFragment_ivContactPhoto_size">96dp</dimen>
-    <dimen name="DialogFragment_ivChoosePhoto_size">40dp</dimen>
-    <dimen name="DialogFragment_bSave_width">320dp</dimen>
-    <dimen name="DialogFragment_bSave_height">55dp</dimen>
-    <dimen name="RecycleViewContact_border_height">66dp</dimen>
-    <dimen name="RecycleViewContact_ivContactPhoto_size">50dp</dimen>
+    <dimen name="dialogFragment_addContact_svInformation_width">300dp</dimen>
+    <dimen name="dialogFragment_addContact_svInformation_height">400dp</dimen>
+    <dimen name="dialogFragment_addContact_tiIOfInformation_marginTop">20dp</dimen>
+    <dimen name="dialogFragment_addContact_ivContactPhoto_size">96dp</dimen>
+    <dimen name="dialogFragment_addContact_ivChoosePhoto_size">40dp</dimen>
+    <dimen name="dialogFragment_addContact_bSave_width">320dp</dimen>
+    <dimen name="dialogFragment_addContact_bSave_height">55dp</dimen>
+    <dimen name="recycleViewContact_border_height">66dp</dimen>
+    <dimen name="recycleViewContact_ivContactPhoto_size">50dp</dimen>
+    <dimen name="showContact_ivShowContactPhoto_size">100dp</dimen>
 
 
-
-
-<!--    <dimen name="authActivity_layoutPadding">16dp</dimen>-->
+    <!--    <dimen name="authActivity_layoutPadding">16dp</dimen>-->
 <!--    <dimen name="authActivity_topGreeting_textSize">24sp</dimen>-->
 <!--    <dimen name="authActivity_botGreeting_textSize">14sp</dimen>-->
 <!--    <dimen name="authActivity_botGreeting_botMargin">24dp</dimen>-->
