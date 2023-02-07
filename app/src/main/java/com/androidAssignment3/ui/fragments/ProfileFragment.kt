@@ -3,19 +3,18 @@ package com.androidAssignment3.ui.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.androidAssignment3.architecture.BaseFragment
 import com.androidAssignment3.databinding.FragmentProfileBinding
+import com.androidAssignment3.ui.MainActivity
 
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
-    private val args: ProfileFragmentArgs by navArgs()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.run {
-            tvName.text = args.userName
+            tvName.text = (activity as MainActivity).getData()
             btnContacts.setOnClickListener {
                 findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToContactsFragment())
             }
