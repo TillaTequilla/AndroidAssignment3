@@ -44,7 +44,6 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
                     val name: String = getName()
                     val intent = Intent(this@AuthActivity, MainActivity::class.java)
                     intent.putExtra(Constance.INTENT_NAME, name)
-
                     startActivity(intent)
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     finish()

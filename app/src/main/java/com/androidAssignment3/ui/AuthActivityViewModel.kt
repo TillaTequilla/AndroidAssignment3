@@ -8,14 +8,14 @@ import com.androidAssignment3.util.PreferenceHelper
 class AuthActivityViewModel : ViewModel() {
     lateinit var sharedPreferences: SharedPreferences
 
-    fun putData(toString: String, toString1: String, checked: Boolean) {
+    fun putData(eMail: String, password: String, checked: Boolean) {
         PreferenceHelper.putValueToSharedPreferences(
             Constance.SHARED_PREFERENCES_EMAIL,
-            toString
+            eMail
         )
         PreferenceHelper.putValueToSharedPreferences(
             Constance.SHARED_PREFERENCES_PASSWORD,
-            toString1
+            password
         )
         PreferenceHelper.putValueToSharedPreferences(
             Constance.SHARED_PREFERENCES_REMEMBER,

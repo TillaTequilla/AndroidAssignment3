@@ -23,6 +23,10 @@ class DialogFragmentShowContact :
         setSizePercent(82, 50)
         val contact = arguments?.getSerializable(Constance.CONTACT_SERIALIZABLE) as Contact
         putDataToUi(contact)
+        binding.ivShowContactTrash?.setOnClickListener {
+            contactViewModel.deleteContact(contact)
+            dismiss()
+        }
 
     }
 
@@ -35,10 +39,6 @@ class DialogFragmentShowContact :
                         .into(ivShowContactPhoto)
                 } else {
                     ivShowContactPhoto.setImageResource(R.drawable.icon_default_photo)
-                }
-                ivShowContactTrash?.setOnClickListener {
-                    contactViewModel.deleteContact(contact)
-                    dismiss()
                 }
                 tvShowContactCareer.text =
                     getString(R.string.showContact_career, contact.career)
