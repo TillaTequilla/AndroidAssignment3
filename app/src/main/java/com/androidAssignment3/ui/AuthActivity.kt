@@ -7,7 +7,6 @@ import androidx.core.widget.doAfterTextChanged
 import com.androidAssignment3.R
 import com.androidAssignment3.architecture.BaseActivity
 import com.androidAssignment3.databinding.ActivityAuthBinding
-import com.androidAssignment3.ui.fragments.AuthActivityViewModel
 import com.androidAssignment3.util.Constance
 import com.androidAssignment3.util.NameParser
 import com.androidAssignment3.util.PreferenceHelper
@@ -45,6 +44,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
                     val name: String = getName()
                     val intent = Intent(this@AuthActivity, MainActivity::class.java)
                     intent.putExtra(Constance.INTENT_NAME, name)
+
                     startActivity(intent)
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     finish()
@@ -87,21 +87,11 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     }
 
     private fun rememberInformation() {
-        val checked = binding.cbRememberMe.isChecked
-        authActivityViewModel.apply {
-            PreferenceHelper.putValueToSharedPreferences(
-                Constance.SHARED_PREFERENCES_EMAIL,
-                binding.etEmail.text.toString()
-            )
-            PreferenceHelper.putValueToSharedPreferences(
-                Constance.SHARED_PREFERENCES_PASSWORD,
-                binding.etPassword.text.toString()
-            )
-            PreferenceHelper.putValueToSharedPreferences(
-                Constance.SHARED_PREFERENCES_REMEMBER,
-                checked
-            )
-        }
+        binding.run { authActivityViewModel.putData(
+            etEmail.text.toString(),
+            etPassword.text.toString(),
+            cbRememberMe.isChecked
+        ) }
 
     }
 

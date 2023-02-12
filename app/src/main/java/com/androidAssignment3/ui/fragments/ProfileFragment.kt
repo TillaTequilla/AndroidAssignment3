@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import com.androidAssignment3.architecture.BaseFragment
 import com.androidAssignment3.databinding.FragmentProfileBinding
 import com.androidAssignment3.ui.MainActivity
+import com.androidAssignment3.util.Constance
 
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
@@ -14,11 +15,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
         super.onViewCreated(view, savedInstanceState)
 
         binding.run {
-            tvName.text = (activity as MainActivity).getData()
+            tvName.text = (activity as MainActivity).intent.getStringExtra(Constance.INTENT_NAME)
             btnContacts.setOnClickListener {
                 findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToContactsFragment())
             }
         }
-
     }
 }
