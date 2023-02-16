@@ -17,10 +17,7 @@ import com.androidAssignment3.model.Contact
 =======
 import com.androidAssignment3.ui.Contact
 import com.androidAssignment3.ui.ContactsViewModel
-<<<<<<< Updated upstream:app/src/main/java/com/androidAssignment3/ui/fragments/ContactsFragment.kt
-=======
 >>>>>>> 54abc7d4bc9fd68b1986da275aa500e1ffccd699:app/src/main/java/com/androidAssignment3/ui/fragments/ContactsFragment.kt
->>>>>>> Stashed changes:app/src/main/java/com/androidAssignment3/ui/mainActivity/fragments/ContactsFragment.kt
 import com.androidAssignment3.util.Constance
 import com.androidAssignment3.util.SwipeToDeleteCallback
 import com.androidAssignment3.databinding.FragmentContactsBinding
