@@ -38,5 +38,13 @@
     <dimen name="recycleViewContact_ivContactPhoto_size">50dp</dimen>
     <dimen name="showContact_ivShowContactPhoto_size">100dp</dimen>
 
+<<<<<<< Updated upstream
     
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 54abc7d4bc9fd68b1986da275aa500e1ffccd699
+>>>>>>> Stashed changes
 </resources>

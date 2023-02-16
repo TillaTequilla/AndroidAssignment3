@@ -1,15 +1,14 @@
-package com.androidAssignment3.ui.fragments
+package com.androidAssignment3.ui.mainActivity.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import com.bumptech.glide.Glide
 import com.androidAssignment3.R
 import com.androidAssignment3.architecture.BaseDialogFragment
 import com.androidAssignment3.databinding.FragmentShowContactBinding
+import com.androidAssignment3.extension.addCircleImage
 import com.androidAssignment3.extension.setSizePercent
-import com.androidAssignment3.ui.Contact
-import com.androidAssignment3.ui.ContactsViewModel
+import com.androidAssignment3.model.Contact
 import com.androidAssignment3.util.Constance
 
 class DialogFragmentShowContact :
@@ -35,8 +34,7 @@ class DialogFragmentShowContact :
             binding.run {
                 tvShowContactName.text = getString(R.string.showContact_name, contact.name)
                 if (contact.imageURL != "null") {
-                    Glide.with(ivShowContactPhoto).load(contact.imageURL).circleCrop()
-                        .into(ivShowContactPhoto)
+                    ivShowContactPhoto.addCircleImage(imageURL)
                 } else {
                     ivShowContactPhoto.setImageResource(R.drawable.icon_default_photo)
                 }

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.androidAssignment3.ui.fragments.ProfileFragment"
+        android:name="com.androidAssignment3.ui.mainActivity.fragments.ProfileFragment"
         android:label="ProfileFragment">
         <action
             android:id="@+id/action_profileFragment_to_contactsFragment"
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactsFragment"
-        android:name="com.androidAssignment3.ui.fragments.ContactsFragment"
+        android:name="com.androidAssignment3.ui.mainActivity.fragments.ContactsFragment"
         android:label="ContactsFragment" >
         <action
             android:id="@+id/action_contactsFragment_to_profileFragment"

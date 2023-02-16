@@ -1,4 +1,4 @@
-package com.androidAssignment3.ui.fragments
+package com.androidAssignment3.ui.mainActivity.fragments
 
 import android.app.Activity
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,45 +15,48 @@ import com.androidAssignment3.architecture.BaseDialogFragment
 import com.androidAssignment3.util.Constance.ADD_CONTACT_RESULT_KEY
 import com.androidAssignment3.databinding.AddContactBinding
 import com.androidAssignment3.extension.setSizePercent
-import com.androidAssignment3.ui.Contact
+import com.androidAssignment3.extension.toast
+import com.androidAssignment3.model.Contact
 import com.androidAssignment3.util.Constance
 
 
 class DialogFragmentAddContact : BaseDialogFragment<AddContactBinding>(AddContactBinding::inflate) {
 
     private var imageUri: Uri? = null
-    private lateinit var launcher: ActivityResultLauncher<Intent>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setSizePercent(90, 90)
+        listenerInitialization()
+    }
+
+    private fun listenerInitialization() {
+        val launcher = createLauncher()
+
         binding.ivAddContactChoosePhoto.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             launcher.launch(intent)
         }
 
-        launcher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    imageUri = result.data?.data
-                    binding.ivAddContactPhoto.setImageURI(imageUri)
-                }
-            }
-
         binding.btnSaveContact.setOnClickListener {
             if (binding.etUsernameNew.text!!.isEmpty()) {
-                Toast.makeText(
-                    context,
-                    getString(R.string.contacts_toast_noInformation),
-                    Toast.LENGTH_SHORT
-                ).show()
+                context?.toast(getString(R.string.contacts_toast_noInformation))
             } else {
                 val contact = createContact()
                 addContactToActivity(contact)
                 dismiss()
             }
 
+        }
+    }
+
+    private fun createLauncher(): ActivityResultLauncher<Intent> {
+        return registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                imageUri = result.data?.data
+                binding.ivAddContactPhoto.setImageURI(imageUri)
+            }
         }
     }
 
