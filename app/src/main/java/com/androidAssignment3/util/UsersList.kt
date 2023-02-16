@@ -1,6 +1,6 @@
 package com.androidAssignment3.util
 
-import com.androidAssignment3.model.Contact
+import com.androidAssignment3.ui.Contact
 
 object UsersList {
 

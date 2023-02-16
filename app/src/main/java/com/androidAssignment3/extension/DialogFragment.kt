@@ -13,7 +13,3 @@ fun DialogFragment.setSizePercent(percentageWidth: Int, percentageHeight: Int) {
     val height = rect.height() * percentHeight
     dialog?.window?.setLayout(width.toInt(), height.toInt())
 }
-
-fun DialogFragment.fullScreen(){
-    setSizePercent(100,100)
-}

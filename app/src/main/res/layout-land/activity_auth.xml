@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/profile_background">
+    android:background="@color/profile_background"
+    tools:context="com.androidAssignment2.ui.AuthActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginInformation"
@@ -20,6 +21,7 @@
             android:id="@+id/tvGreetingTop"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/textSize_big"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_greetings"
             android:textAlignment="center"
@@ -33,7 +35,7 @@
             android:id="@+id/tvGreetingBot"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/indent_small"
+            android:layout_marginBottom="@dimen/indent_big"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_greetings_2"
             android:textAlignment="center"
@@ -71,6 +73,7 @@
             android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/indent_big"
             android:hint="@string/login_password_hint"
             android:theme="@style/ThemeOverlay.App.TextInputLayout"
             app:errorEnabled="true"

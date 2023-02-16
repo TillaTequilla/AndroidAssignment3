@@ -1,14 +1,15 @@
-package com.androidAssignment3.ui.mainActivity.fragments
+package com.androidAssignment3.ui.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import com.bumptech.glide.Glide
 import com.androidAssignment3.R
 import com.androidAssignment3.architecture.BaseDialogFragment
 import com.androidAssignment3.databinding.FragmentShowContactBinding
-import com.androidAssignment3.extension.addCircleImage
 import com.androidAssignment3.extension.setSizePercent
-import com.androidAssignment3.model.Contact
+import com.androidAssignment3.ui.Contact
+import com.androidAssignment3.ui.ContactsViewModel
 import com.androidAssignment3.util.Constance
 
 class DialogFragmentShowContact :
@@ -22,10 +23,6 @@ class DialogFragmentShowContact :
         setSizePercent(82, 50)
         val contact = arguments?.getSerializable(Constance.CONTACT_SERIALIZABLE) as Contact
         putDataToUi(contact)
-        binding.ivShowContactTrash?.setOnClickListener {
-            contactViewModel.deleteContact(contact)
-            dismiss()
-        }
 
     }
 
@@ -34,9 +31,14 @@ class DialogFragmentShowContact :
             binding.run {
                 tvShowContactName.text = getString(R.string.showContact_name, contact.name)
                 if (contact.imageURL != "null") {
-                    ivShowContactPhoto.addCircleImage(imageURL)
+                    Glide.with(ivShowContactPhoto).load(contact.imageURL).circleCrop()
+                        .into(ivShowContactPhoto)
                 } else {
                     ivShowContactPhoto.setImageResource(R.drawable.icon_default_photo)
+                }
+                ivShowContactTrash?.setOnClickListener {
+                    contactViewModel.deleteContact(contact)
+                    dismiss()
                 }
                 tvShowContactCareer.text =
                     getString(R.string.showContact_career, contact.career)

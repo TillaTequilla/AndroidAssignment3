@@ -1,9 +1,8 @@
-package com.androidAssignment3.ui.mainActivity.fragments
+package com.androidAssignment3.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.androidAssignment3.model.Contact
 import com.androidAssignment3.util.UsersList
 
 class ContactsViewModel : ViewModel() {
@@ -16,8 +15,12 @@ class ContactsViewModel : ViewModel() {
         _contactList.value = UsersList.getUsers()
     }
 
+    fun getListUsers() = _contactList.value
+
     fun deleteContact(index: Int) {
-        deleteContact(_contactList.value!![index])
+        _contactList.value = _contactList.value?.toMutableList()?.apply {
+            removeAt(index)
+        }
     }
 
     fun deleteContact(contact: Contact) {
